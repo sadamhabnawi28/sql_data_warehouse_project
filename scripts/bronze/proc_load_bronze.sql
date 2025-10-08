@@ -7,6 +7,8 @@ Script Purpose:
     It performs the following actions:
     - Truncates the bronze tables before loading data.
     - Uses the `COPY` command to load data from csv Files to bronze tables.
+
+How to run: Use `CALL bronze.load_bronze();` and run it in query editor.
 ===============================================================================
 */
 
