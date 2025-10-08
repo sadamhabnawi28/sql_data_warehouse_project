@@ -8,7 +8,8 @@ Script Purpose:
     - Truncates the bronze tables before loading data.
     - Uses the `COPY` command to load data from csv Files to bronze tables.
 
-How to run: Use `CALL bronze.load_bronze();` and run it in query editor.
+How to run: 
+Execute the procedure script below first and then use `CALL bronze.load_bronze();`.
 ===============================================================================
 */
 
@@ -123,8 +124,6 @@ EXCEPTION
         RAISE NOTICE '==========================================';
 END;
 $$;
-
-CALL bronze.load_bronze();
 
 
 
