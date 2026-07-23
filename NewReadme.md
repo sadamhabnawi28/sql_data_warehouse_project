@@ -125,8 +125,6 @@ data-warehouse-project/
 ├── datasets/                           # Raw ERP and CRM datasets used as source data
 │
 ├── docs/                               # Project documentation and architecture
-│   ├── data_architecture.drawio        # Medallion architecture diagram
-│   ├── data_models.drawio              # Star schema data model
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
 │   ├── bronze/                         # Raw data ingestion scripts
