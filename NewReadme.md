@@ -113,7 +113,7 @@ data-warehouse-project/
 
 # 🛡️ License
 
-This project is licensed under the **MIT License**, allowing you to use, modify, and distribute the code for personal or commercial purposes, provided that proper attribution is included.
+This project is licensed under the [MIT License](LICENSE), allowing you to use, modify, and distribute the code for personal or commercial purposes, provided that proper attribution is included.
 
 ---
 
