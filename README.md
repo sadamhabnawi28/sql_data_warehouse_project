@@ -119,7 +119,7 @@ This project is licensed under the [MIT License](LICENSE), allowing you to use, 
 
 # 🌟 About Me
 
-Hi! I'm **Sadam Habnawi**, a Physics graduate with a strong passion for working with data. My interests span across **Data Analytics**, **Data Engineering**, **Data Science**, and Business Intelligence, where I enjoy transforming raw data into valuable insights that drive informed decision-making.
+Hi! I'm **Sadam Habnawi**, a Physics freshgraduate with a strong passion for working with data. My interests span across **Data Analytics**, **Data Engineering**, **Data Science**, and Business Intelligence, where I enjoy transforming raw data into valuable insights that drive informed decision-making.
 
 I'm continuously expanding my skills by building real-world projects and exploring modern data technologies.
 
