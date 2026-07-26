@@ -89,30 +89,6 @@ Develop a modern PostgreSQL-based data warehouse that consolidates sales informa
 
 ---
 
-## 📊 BI: Analytics & Reporting (Data Analysis)
-
-### Objective
-
-Develop SQL-based analytical solutions that transform curated warehouse data into meaningful business insights.
-
-The analytical layer focuses on answering key business questions related to:
-
-* **Customer Behavior**
-
-  * Analyze purchasing patterns, customer segmentation, and overall customer value.
-
-* **Product Performance**
-
-  * Evaluate product sales, profitability, and overall business contribution.
-
-* **Sales Trends**
-
-  * Monitor sales performance over time, identify growth opportunities, and detect seasonal patterns.
-
-These analyses provide stakeholders with reliable business metrics that support operational monitoring, strategic planning, and data-driven decision-making.
-
----
-
 # 📂 Repository Structure
 
 ```text
