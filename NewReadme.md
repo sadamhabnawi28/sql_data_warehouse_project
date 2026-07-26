@@ -1,10 +1,10 @@
-# Data Warehouse and Analytics Project
+# Data Warehouse Using PostgreSQL Project
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀
+Welcome to the **Data Warehouse Using PostgreSQL Project** repository! 🚀
 
-This repository showcases an end-to-end data warehousing and analytics solution, covering the complete lifecycle of data engineering—from ingesting raw data into a centralized warehouse to transforming it into business-ready datasets that support reporting, analytical exploration, and strategic decision-making.
+This repository showcases an end-to-end data warehousing project, covering the complete lifecycle of data engineering from ingesting raw data into a centralized warehouse to transforming it into business ready datasets that support reporting, analytical exploration, and strategic decision-making.
 
-The project demonstrates industry-standard practices in designing modern data warehouses, implementing ETL pipelines, modeling analytical data, and generating meaningful business insights.
+The project demonstrates industry standard practices in designing modern data warehouses, implementing ETL pipelines, modeling analytical data, and generating meaningful business insights.
 
 ---
 
@@ -18,7 +18,7 @@ The Bronze layer serves as the landing zone for all source data. Raw datasets fr
 
 ### 🥈 Silver Layer – Cleaned & Standardized Data
 
-The Silver layer focuses on improving data quality through cleansing and transformation processes. Common data engineering tasks performed in this layer include:
+The Silver layer focuses on improving data quality through cleansing and transformation processes including:
 
 * Handling missing or invalid values
 * Removing duplicate records
@@ -52,10 +52,6 @@ This project demonstrates the complete workflow of building a modern analytical 
 
    * Designing analytical data models using fact and dimension tables.
    * Optimizing the schema for reporting and SQL-based analytical queries.
-
-4. **Business Analytics**
-
-   * Creating SQL queries that generate actionable business insights from the curated data warehouse.
 
 ---
 
