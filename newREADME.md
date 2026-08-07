@@ -30,7 +30,7 @@ The company receives operational data from:
 | System | Main Function                                                  |
 | ------ | -------------------------------------------------------------- |
 | ERP    | Orders, products, invoices, and sales transactions             |
-| CRM    | Customers, sales opportunities, accounts, and sales activities |
+| CRM    | Customers, sales details, and products informations |
 
 Because both systems store related business entities independently, management experiences:
 
