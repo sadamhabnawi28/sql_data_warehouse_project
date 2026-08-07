@@ -216,14 +216,12 @@ The warehouse supports practical business analysis.
 
 ```sql
 SELECT
-    d.year,
-    d.month_name,
-    SUM(f.sales_amount) AS total_revenue
-FROM gold.fact_sales f
-JOIN gold.dim_date d
-    ON f.order_date = d.date_key
-GROUP BY d.year, d.month_name
-ORDER BY d.year, d.month_name;
+        EXTRACT(YEAR FROM date(t.order_date)) AS YEAR,
+        to_char(date(t.order_date), 'Month'),
+        SUM(t.sales_amount) AS total
+FROM gold.fact_sales t
+GROUP BY 1,2
+ORDER BY 1,2;
 ```
 
 ### Top 10 Customers by Revenue
