@@ -115,12 +115,14 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 
 | Column       | Description                     |
 | ------------ | ------------------------------- |
-| order_id     | Unique order identifier         |
+| order_number     | Unique order identifier         |
 | customer_key | Reference to customer dimension |
 | product_key  | Reference to product dimension  |
 | order_date   | Transaction date                |
+| shipping_date| Shipping date                |
+| due_date   | Due date                |
 | quantity     | Number of units sold            |
-| unit_price   | Selling price per unit          |
+| price   | Selling price per unit          |
 | sales_amount | Calculated revenue              |
 
 ### Dimension Tables
@@ -129,9 +131,36 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 | ----------------- | ----------------------------------- |
 | `dim_customer`    | Customer segmentation and profiling |
 | `dim_product`     | Product catalog and categorization  |
-| `dim_date`        | Time-based analysis                 |
-| `dim_salesperson` | Sales performance analysis          |
-| `dim_region`      | Geographic performance analysis     |
+
+#### `dim_customers`
+
+| Column       | Description                     |
+| ------------ | ------------------------------- |
+| customer_key | Reference to customer dimension |
+| customer_id | Reference to customer dimension |
+| customer_number | Reference to customer dimension |
+| first_name | customer's first name|
+| last_name | customer's last name |
+| country | customer's country |
+| marital status | customer's marital status |
+| gender | customer's gender |
+| birthdate | customer's birth date |
+| create_date| Reference to date the data created or inputed |
+
+#### `dim_products`
+
+| Column       | Description                     |
+| ------------ | ------------------------------- |
+| product_key | Reference to customer dimension |
+| product_id | Reference to product dimension |
+| product_number | Reference to product dimension |
+| category_id | Category ID |
+| category | Category Name |
+| subcategory | Subcategory Name |
+| maintenance | (Yes/No) Whether the product is in maintenance |
+| cost | product's cost |
+| product_line |  |
+| start_date |  |
 
 ---
 
