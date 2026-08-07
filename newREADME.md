@@ -61,10 +61,7 @@ Implement a **three-layer Medallion Data Warehouse** that:
 ---
 
 ## 🏢 Business Scenario
-
-To make the project more realistic, consider the following scenario:
-
-> A retail distribution company sells products through multiple sales channels. Customer information is managed by the CRM system, while completed orders and financial transactions are recorded in the ERP system. Executives need a consolidated sales performance dashboard that combines both operational domains.
+A retail distribution company sells products through multiple sales channels. Customer information is managed by the CRM system, while completed orders and financial transactions are recorded in the ERP system. Executives need a consolidated sales performance dashboard that combines both operational domains.
 
 The data warehouse acts as the **analytical backbone** connecting these systems and supporting enterprise reporting.
 
