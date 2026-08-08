@@ -303,7 +303,7 @@ GROUP BY 1,2
 ORDER BY 1,2;
 ```
 
-#### ** YoY Sales Growth %**
+#### **YoY Sales Growth %**
 
 ```sql
 WITH cte AS (
