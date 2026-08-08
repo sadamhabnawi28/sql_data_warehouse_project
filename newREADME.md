@@ -227,15 +227,23 @@ ORDER BY 1,2;
 ### Top 10 Customers by Revenue
 
 ```sql
-SELECT
-    c.customer_name,
-    SUM(f.sales_amount) AS revenue
-FROM gold.fact_sales f
-JOIN gold.dim_customer c
-    ON f.customer_key = c.customer_key
-GROUP BY c.customer_name
-ORDER BY revenue DESC
-LIMIT 10;
+WITH customer_rank AS (
+	SELECT
+	dc.first_name || ' ' || dc.last_name AS name,
+	SUM(t.sales_amount) AS total,
+	dense_rank() over(ORDER BY SUM(t.sales_amount) DESC) AS ranking
+	FROM gold.fact_sales t 
+	LEFT JOIN gold.dim_customers dc 
+	  ON t.customer_key = dc.customer_key
+	GROUP BY 1
+	ORDER BY 2 DESC
+) 
+SELECT 
+name,
+total,
+ranking
+FROM customer_rank 
+WHERE ranking <= 10;
 ```
 
 These examples demonstrate how the warehouse simplifies analytical workloads for business analysts and decision-makers.
