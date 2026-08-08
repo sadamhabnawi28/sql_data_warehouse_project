@@ -121,7 +121,7 @@ The Gold Layer is designed to support common business KPIs, including:
 | ------------------------------- | ---------------------------------------- |
 | **Top Selling Products**        | Products with highest sales quantity     |
 | **Revenue by Category**         | Revenue contribution by product category |
-| **Product Performance Ranking** | Comparative ranking across products      |
+| **Top 10 Product by Revenue** | Comparative ranking across products      |
 
 ---
 
@@ -388,15 +388,47 @@ WHERE ranking <= 10;
 #### **Top Selling Products**
 
 ```sql
+SELECT 
+	dp.product_key,
+	dp.product_name,
+	SUM(t.quantity) AS quantity
+FROM gold.fact_sales t
+LEFT JOIN gold.dim_products dp 
+	ON t.product_key = dp.product_key
+GROUP BY 1,2
+ORDER BY 3 DESC;
 ```
 #### **Revenue By Category**
 
 ```sql
+SELECT 
+	category,
+	SUM(t.sales_amount) AS "revenue ($)"
+FROM gold.fact_sales t
+LEFT JOIN gold.dim_products dp
+	ON t.product_key = dp.product_key
+GROUP BY 1;
 ```
 
-#### **Product Performance Ranking**
+#### **Top 10 Product by Revenue**
 
 ```sql
+WITH product_rank AS (
+	SELECT
+	t.product_key,
+	dp.product_name,
+	SUM(t.sales_amount) AS "total_revenue ($)",
+	dense_rank() over(ORDER BY SUM(t.sales_amount) DESC) AS ranking
+	FROM gold.fact_sales t 
+	LEFT JOIN gold.dim_products dp 
+	  ON t.product_key  = dp.product_key
+	GROUP BY 1, 2
+	ORDER BY 4 
+) 
+SELECT 
+	*
+FROM product_rank 
+WHERE ranking <= 10;
 ```
 
 These examples demonstrate how the warehouse simplifies analytical workloads for business analysts and decision-makers.
