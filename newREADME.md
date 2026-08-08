@@ -239,9 +239,9 @@ WITH customer_rank AS (
 	ORDER BY 2 DESC
 ) 
 SELECT 
-name,
-total,
-ranking
+	name,
+	total,
+	ranking
 FROM customer_rank 
 WHERE ranking <= 10;
 ```
