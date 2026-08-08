@@ -112,7 +112,6 @@ The Gold Layer is designed to support common business KPIs, including:
 | KPI                      | Description                                 |
 | ------------------------ | ------------------------------------------- |
 | **Active Customers**     | Customers with at least one completed order |
-| **New Customers**        | First-time purchasing customers             |
 | **Revenue per Customer** | Average revenue generated per customer      |
 | **Top Customers**        | Customers contributing the highest revenue  |
 
@@ -336,16 +335,31 @@ FROM cte;
 #### **Active Customers**
 
 ```sql
-```
-
-#### **New Customers**
-
-```sql
+SELECT 
+	dc.customer_key,
+	dc.first_name || ' ' || dc.last_name AS name,
+	count(t.order_number) AS number_of_order
+FROM gold.fact_sales t
+LEFT JOIN gold.dim_customers dc
+	ON t.customer_key = dc.customer_key
+GROUP BY 1, 2
+HAVING count(t.order_number) >= 1
+ORDER BY 3 DESC;
 ```
 
 #### **Revenue Per Customer**
 
 ```sql
+
+SELECT 
+	dc.customer_key,
+	dc.first_name || ' ' || dc.last_name AS name,
+	SUM(t.sales_amount) AS "revenue ($)"
+FROM gold.fact_sales t
+LEFT JOIN gold.dim_customers dc 
+	ON t.customer_key = dc.customer_key
+GROUP BY 1, 2
+ORDER BY 3 DESC;  
 ```
 
 #### **Top 10 Customers by Revenue**
