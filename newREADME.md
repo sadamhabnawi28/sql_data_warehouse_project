@@ -256,11 +256,31 @@ These controls improve the reliability of downstream reports and dashboards.
 
 ---
 
-## 📈 Example Analytical Queries
+## 📈 KPI Analytical Queries
 
 The warehouse supports practical business analysis.
 
-### Monthly Revenue Trend
+### Sales KPIs
+#### **Total Revenue**
+
+```sql
+```
+
+#### **Order Count**
+
+```sql
+```
+
+#### **Units Sold**
+
+```sql
+```
+
+#### **Average Order Value (AOV)**
+
+```sql
+```
+#### Monthly Revenue Trend
 
 ```sql
 SELECT
@@ -272,7 +292,26 @@ GROUP BY 1,2
 ORDER BY 1,2;
 ```
 
-### Top 10 Customers by Revenue
+#### ** YoY Sales Growth %**
+```sql
+```
+### Customer KPIs
+#### **Active Customers**
+
+```sql
+```
+
+#### **New Customers**
+
+```sql
+```
+
+#### **Revenue Per Customer**
+
+```sql
+```
+
+#### **Top 10 Customers by Revenue**
 
 ```sql
 WITH customer_rank AS (
@@ -292,6 +331,21 @@ SELECT
 	ranking
 FROM customer_rank 
 WHERE ranking <= 10;
+```
+
+### Product KPIs
+#### **Top Selling Products**
+
+```sql
+```
+#### **Revenue By Category**
+
+```sql
+```
+
+#### **Product Performance Ranking**
+
+```sql
 ```
 
 These examples demonstrate how the warehouse simplifies analytical workloads for business analysts and decision-makers.
