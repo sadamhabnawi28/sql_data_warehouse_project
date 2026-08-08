@@ -513,7 +513,7 @@ data-warehouse-project/
 │
 ├── datasets/                           # Raw ERP and CRM datasets used as source data
 │
-├── docs/                               # Project documentation and architecture
+├── images/                               # contains KPI query result images
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
 │   ├── bronze/                         # Raw data ingestion scripts
