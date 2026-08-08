@@ -264,21 +264,33 @@ The warehouse supports practical business analysis.
 #### **Total Revenue**
 
 ```sql
+SELECT
+	SUM(t.sales_amount) AS "total_revenue ($)"
+FROM gold.fact_sales t;
 ```
 
 #### **Order Count**
 
 ```sql
+SELECT
+	count(*) AS total_order
+FROM gold.fact_sales t;
 ```
 
 #### **Units Sold**
 
 ```sql
+SELECT  
+	SUM(t.quantity) AS total_quantity
+FROM gold.fact_sales t;
 ```
 
 #### **Average Order Value (AOV)**
 
 ```sql
+SELECT 
+	SUM(t.sales_amount) / count(*) AS "average_order_value ($)"
+FROM gold.fact_sales t;
 ```
 #### Monthly Revenue Trend
 
@@ -293,8 +305,33 @@ ORDER BY 1,2;
 ```
 
 #### ** YoY Sales Growth %**
+
 ```sql
+WITH cte AS (
+	SELECT 
+	*,
+	LAG(revenue, 12) OVER() AS prev_revenue,
+	revenue - LAG(revenue, 12) OVER() AS diff_revenue
+	FROM (SELECT
+		EXTRACT(YEAR FROM date(t.order_date)) AS YEAR,
+		EXTRACT(MONTH FROM date(t.order_date)) AS month,
+		CAST(SUM(t.sales_amount) AS numeric) AS revenue
+		FROM gold.fact_sales t
+		WHERE EXTRACT(YEAR FROM date(t.order_date)) IS NOT NULL
+		GROUP BY 1, 2
+		ORDER BY 1, 2
+		)
+	)
+SELECT 
+year,
+month,
+CASE 
+	WHEN diff_revenue IS NULL THEN 0
+	ELSE round((diff_revenue / prev_revenue) * 100, 2)
+END AS "YoY Growth (%)"
+FROM cte;
 ```
+
 ### Customer KPIs
 #### **Active Customers**
 
