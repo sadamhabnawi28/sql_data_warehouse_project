@@ -216,10 +216,10 @@ The warehouse supports practical business analysis.
 
 ```sql
 SELECT
-        EXTRACT(YEAR FROM date(t.order_date)) AS YEAR,
-        to_char(date(t.order_date), 'Month'),
-        SUM(t.sales_amount) AS total
-FROM gold.fact_sales t
+	EXTRACT(YEAR FROM date(t.order_date)) AS YEAR,
+	to_char(date(t.order_date), 'Month'),
+	SUM(t.sales_amount) AS total
+	FROM gold.fact_sales t
 GROUP BY 1,2
 ORDER BY 1,2;
 ```
