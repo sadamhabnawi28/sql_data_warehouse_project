@@ -532,7 +532,7 @@ data-warehouse-project/
 
 # 🛡️ License
 
-This project is licensed under the [MIT License](LICENSE), allowing you to use, modify, and distribute the code for personal or commercial purposes, provided that proper attribution is included.
+This project is licensed under the [MIT License]({{ '/license/' | relative_url }}), allowing you to use, modify, and distribute the code for personal or commercial purposes, provided that proper attribution is included.
 
 ---
 
@@ -544,5 +544,5 @@ I'm continuously expanding my skills by building real-world projects and explori
 
 If you'd like to connect or discuss data-related topics, feel free to reach out through LinkedIn.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge\&logo=linkedin\&logoColor=white)](http://www.linkedin.com/in/sadam-habnawi-7621011b4)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](http://www.linkedin.com/in/sadam-habnawi-7621011b4)
 
