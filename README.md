@@ -1,5 +1,7 @@
 # Data Warehouse Using PostgreSQL Project
 
+{% include github_button.html %}
+
 Welcome to the **Data Warehouse Using PostgreSQL Project** repository! 🚀
 
 This repository showcases an end-to-end data warehousing project, covering the complete lifecycle of data engineering from ingesting raw data into a centralized warehouse to transforming it into business ready datasets that support reporting, analytical exploration, and strategic decision-making.
