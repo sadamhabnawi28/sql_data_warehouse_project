@@ -1,5 +1,5 @@
 title: "Data Warehousing with PostgreSql Project"
-description: ""
+description: "Building a modern data warehouse with postgresql, including ETL processes, data modeling, and analytics"
 
 markdown: kramdown
 highlighter: rouge
