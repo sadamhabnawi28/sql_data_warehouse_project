@@ -127,6 +127,26 @@ The Gold Layer is designed to support common business KPIs, including:
 
 ---
 
+### Expected Business Outcomes
+
+After implementing this data warehouse, the organization should achieve:
+
+#### Operational Benefits
+
+* Reduced manual spreadsheet reconciliation
+* Faster report generation
+* Improved data consistency across departments
+* Better traceability of data transformations
+
+#### Strategic Benefits
+
+* Centralized **single source of truth**
+* More accurate revenue and customer reporting
+* Improved visibility into sales performance
+* Enhanced ability to identify growth opportunities and underperforming segments
+
+---
+
 ## Data Architecture
 
 The solution is built using the **Medallion Architecture**, which organizes data into three distinct layers to improve data quality, maintainability, and analytical performance.
@@ -446,26 +466,6 @@ WHERE ranking <= 10;
 ```
 
 These examples demonstrate how the warehouse simplifies analytical workloads for business analysts and decision-makers.
-
----
-
-## Expected Business Outcomes
-
-After implementing this data warehouse, the organization should achieve:
-
-### Operational Benefits
-
-* Reduced manual spreadsheet reconciliation
-* Faster report generation
-* Improved data consistency across departments
-* Better traceability of data transformations
-
-### Strategic Benefits
-
-* Centralized **single source of truth**
-* More accurate revenue and customer reporting
-* Improved visibility into sales performance
-* Enhanced ability to identify growth opportunities and underperforming segments
 
 ---
 
