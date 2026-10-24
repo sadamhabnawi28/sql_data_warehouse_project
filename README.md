@@ -151,14 +151,42 @@ After implementing this data warehouse, the organization should achieve:
 
 The solution is built using the **Medallion Architecture**, which organizes data into three distinct layers to improve data quality, maintainability, and analytical performance.
 
-### 2.1 Bronze Layer – Raw Data
+### 2.1 End-to-End Data Flow
+
+```text
+ERP CSV Files
+        │
+        ▼
+┌─────────────────┐
+│  Bronze Layer   │  ← Raw ingestion
+└─────────────────┘
+        │
+        ▼
+┌─────────────────┐
+│  Silver Layer   │  ← Cleansing & standardization
+└─────────────────┘
+        │
+        ▼
+┌─────────────────┐
+│   Gold Layer    │  ← Star schema & KPIs
+└─────────────────┘
+        │
+        ▼
+BI Dashboards / SQL Analytics
+```
+
+This flow ensures that **raw operational data is transformed into trusted business information** through a structured and auditable process.
+
+---
+
+### 2.2 Bronze Layer – Raw Data
 
 The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.    
 See full scripts:     
 [*Data Definition Languange*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)    
 [*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/bronze/proc_load_bronze.sql)
 
-### 2.2 Silver Layer – Cleaned & Standardized Data
+### 2.3 Silver Layer – Cleaned & Standardized Data
 
 The Silver layer focuses on improving data quality through cleansing and transformation processes including:
 
@@ -174,7 +202,7 @@ See full scripts:
 [*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/proc_load_silver.sql)
 
 
-### 2.3 Gold Layer – Business-Ready Data
+### 2.4 Gold Layer – Business-Ready Data
 
 The Gold layer contains curated datasets specifically designed for reporting and business intelligence. Data is modeled using a **Star Schema**, consisting of fact and dimension tables that enable efficient analytical queries and simplify reporting for end users.
 
@@ -242,34 +270,6 @@ See full scripts:
 | cost | product's cost |
 | product_line |  |
 | start_date |  |
-
----
-
-### 2.4 End-to-End Data Flow
-
-```text
-ERP CSV Files
-        │
-        ▼
-┌─────────────────┐
-│  Bronze Layer   │  ← Raw ingestion
-└─────────────────┘
-        │
-        ▼
-┌─────────────────┐
-│  Silver Layer   │  ← Cleansing & standardization
-└─────────────────┘
-        │
-        ▼
-┌─────────────────┐
-│   Gold Layer    │  ← Star schema & KPIs
-└─────────────────┘
-        │
-        ▼
-BI Dashboards / SQL Analytics
-```
-
-This flow ensures that **raw operational data is transformed into trusted business information** through a structured and auditable process.
 
 ---
 
