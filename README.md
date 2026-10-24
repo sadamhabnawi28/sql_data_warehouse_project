@@ -135,8 +135,8 @@ The solution is built using the **Medallion Architecture**, which organizes data
 
 The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.    
 See full scripts:     
-[Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)    
-[Loading Procedure](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/bronze/proc_load_bronze.sql)
+[*Data Definition Languange*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)    
+[*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/bronze/proc_load_bronze.sql)
 
 ## Silver Layer – Cleaned & Standardized Data
 
@@ -150,8 +150,8 @@ The Silver layer focuses on improving data quality through cleansing and transfo
 
 The resulting datasets provide a reliable and standardized foundation for downstream analytical workloads.    
 See full scripts:     
-[Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/ddl_silver.sql)    
-[Loading Procedure](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/proc_load_silver.sql)
+[*Data Definition Languange*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/ddl_silver.sql)    
+[*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/proc_load_silver.sql)
 
 
 ## Gold Layer – Business-Ready Data
@@ -166,8 +166,8 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 * Intuitive navigation for business users 
 
 See full scripts:     
-[Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/ddl_gold.sql)    
-[Data Quality Check](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
+[*Data Definition Languange*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/ddl_gold.sql)    
+[*Data Quality Check*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
 
 
 ### Fact Table
