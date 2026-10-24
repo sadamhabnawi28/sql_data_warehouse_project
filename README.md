@@ -133,7 +133,7 @@ The solution is built using the **Medallion Architecture**, which organizes data
 
 ## Bronze Layer – Raw Data
 
-The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.
+The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.    
 See full scripts: [Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)
 
 ## Silver Layer – Cleaned & Standardized Data
