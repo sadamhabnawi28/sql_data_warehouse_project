@@ -2,11 +2,11 @@
 
 {% include github_button.html %}
 
-Welcome to the **Data Warehouse Using PostgreSQL Project** repository! 🚀
+Welcome to the **Data Warehouse Using PostgreSQL Project** repository!
 
 This repository showcases an end-to-end data warehousing project, covering the complete lifecycle of data engineering from ingesting raw data into a centralized warehouse to transforming it into business ready datasets that support reporting, analytical exploration, and strategic decision-making.
 
-# 📖 Project Overview
+# Project Overview
 
 This project demonstrates the complete workflow of building a modern analytical data platform, including:
 
@@ -27,7 +27,7 @@ This project demonstrates the complete workflow of building a modern analytical 
 
 ---
 
-# 🎯 Business Context
+# Business Context
 
 Modern organizations often operate multiple transactional systems such as **ERP (Enterprise Resource Planning)** and **CRM (Customer Relationship Management)**. Although these systems are essential for daily operations, they are usually optimized for **transaction processing (OLTP)** rather than **cross-functional analytics**.
 
@@ -49,7 +49,7 @@ The warehouse enables stakeholders to answer critical business questions such as
 
 ---
 
-## 🧩 Business Problem Statement
+## Business Problem Statement
 
 ### Current Situation
 
@@ -88,14 +88,14 @@ Implement a **three-layer Medallion Data Warehouse** that:
 
 ---
 
-## 🏢 Business Scenario
+## Business Scenario
 A retail distribution company sells products through multiple sales channels. Customer information is managed by the CRM system, while completed orders and financial transactions are recorded in the ERP system. Executives need a consolidated sales performance dashboard that combines both operational domains.
 
 The data warehouse acts as the **analytical backbone** connecting these systems and supporting enterprise reporting.
 
 ---
 
-## 📊 Key Business Metrics (KPIs)
+## Key Business Metrics (KPIs)
 
 The Gold Layer is designed to support common business KPIs, including:
 
@@ -123,19 +123,20 @@ The Gold Layer is designed to support common business KPIs, including:
 | ------------------------------- | ---------------------------------------- |
 | **Top Selling Products**        | Products with highest sales quantity     |
 | **Revenue by Category**         | Revenue contribution by product category |
-| **Top 10 Product by Revenue** | Comparative ranking across products      |
+| **Top 10 Product by Revenue**   | Comparative ranking across products      |
 
 ---
 
-# 🏗️ Data Architecture
+# Data Architecture
 
 The solution is built using the **Medallion Architecture**, which organizes data into three distinct layers to improve data quality, maintainability, and analytical performance.
 
-## 🥉 Bronze Layer – Raw Data
+## Bronze Layer – Raw Data
 
 The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.
+See full scripts: [Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)
 
-## 🥈 Silver Layer – Cleaned & Standardized Data
+## Silver Layer – Cleaned & Standardized Data
 
 The Silver layer focuses on improving data quality through cleansing and transformation processes including:
 
@@ -147,7 +148,7 @@ The Silver layer focuses on improving data quality through cleansing and transfo
 
 The resulting datasets provide a reliable and standardized foundation for downstream analytical workloads.
 
-## 🥇 Gold Layer – Business-Ready Data
+## Gold Layer – Business-Ready Data
 
 The Gold layer contains curated datasets specifically designed for reporting and business intelligence. Data is modeled using a **Star Schema**, consisting of fact and dimension tables that enable efficient analytical queries and simplify reporting for end users.
 
@@ -213,7 +214,7 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 
 ---
 
-## 🔄 End-to-End Data Flow
+## End-to-End Data Flow
 
 ```text
 ERP CSV Files
@@ -241,7 +242,7 @@ This flow ensures that **raw operational data is transformed into trusted busine
 
 ---
 
-## 🧪 Data Quality Strategy
+## Data Quality Strategy
 
 Data quality is a critical component of any analytical platform. The Silver Layer implements validation rules such as:
 
@@ -257,7 +258,7 @@ These controls improve the reliability of downstream reports and dashboards.
 
 ---
 
-## 📈 KPI Analytical Queries
+## KPI Analytical Queries
 
 The warehouse supports practical business analysis.
 
@@ -437,7 +438,7 @@ These examples demonstrate how the warehouse simplifies analytical workloads for
 
 ---
 
-## 🎯 Expected Business Outcomes
+## Expected Business Outcomes
 
 After implementing this data warehouse, the organization should achieve:
 
@@ -457,7 +458,7 @@ After implementing this data warehouse, the organization should achieve:
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 This project currently focuses on the **latest available dataset**, but several enhancements could be implemented in future iterations:
 
@@ -472,7 +473,7 @@ This project currently focuses on the **latest available dataset**, but several 
 
 ---
 
-## 👥 Target Stakeholders
+## Target Stakeholders
 
 This project is relevant for multiple stakeholder groups:
 
@@ -488,7 +489,7 @@ By serving both **technical users** and **business users**, the warehouse become
 
 ---
 
-## 💡 Why PostgreSQL?
+## Why PostgreSQL?
 
 PostgreSQL was selected for this project because it provides:
 
@@ -502,13 +503,13 @@ This makes PostgreSQL an excellent choice for building a **lightweight but produ
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
 This project is not only a **technical implementation of a PostgreSQL Data Warehouse**, but also a **business-oriented analytical solution** that demonstrates how raw operational data can be transformed into **trusted, actionable insights**.
 
 By combining **Medallion Architecture**, **ETL pipelines**, **data quality management**, and **Star Schema modeling**, the solution provides a realistic example of how modern organizations can build a scalable foundation for **business intelligence, performance monitoring, and strategic decision-making**.
 
-# 📂 Repository Structure
+## Repository Structure
 
 ```text
 data-warehouse-project/
@@ -530,13 +531,13 @@ data-warehouse-project/
 
 ---
 
-# 🛡️ License
+## License
 
 This project is licensed under the [MIT License]({{ '/license/' | relative_url }}), allowing you to use, modify, and distribute the code for personal or commercial purposes, provided that proper attribution is included.
 
 ---
 
-# 🌟 About Me
+# About Me
 
 Hi! I'm **Sadam Habnawi**, a Physics freshgraduate with a strong passion for working with data. My interests span across **Data Analytics**, **Data Engineering**, **Data Science**, and Business Intelligence, where I enjoy transforming raw data into valuable insights that drive informed decision-making.
 
