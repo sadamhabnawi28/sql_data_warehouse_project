@@ -148,7 +148,11 @@ The Silver layer focuses on improving data quality through cleansing and transfo
 * Normalizing inconsistent values
 * Applying business rules to ensure data consistency
 
-The resulting datasets provide a reliable and standardized foundation for downstream analytical workloads.
+The resulting datasets provide a reliable and standardized foundation for downstream analytical workloads.    
+See full scripts:     
+[Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/ddl_silver.sql)    
+[Loading Procedure](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/proc_load_silver.sql)
+
 
 ## Gold Layer – Business-Ready Data
 
@@ -159,7 +163,10 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 * Simple query structure
 * Better performance for aggregation queries
 * Easier integration with BI tools
-* Intuitive navigation for business users
+* Intuitive navigation for business users 
+See full scripts:     
+[Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/ddl_gold.sql)    [Quality Check](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
+
 
 ### Fact Table
 
