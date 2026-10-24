@@ -269,12 +269,12 @@ These controls improve the reliability of downstream reports and dashboards.
 
 ---
 
-### KPI Analytical Queries
+## KPI Analytical Queries
 
 The warehouse supports practical business analysis.
 
-#### Sales KPIs
-##### **Total Revenue**
+### Sales KPIs
+#### **Total Revenue**
 
 ```sql
 SELECT
@@ -282,7 +282,7 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-##### **Order Count**
+#### **Order Count**
 
 ```sql
 SELECT
@@ -290,7 +290,7 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-##### **Units Sold**
+#### **Units Sold**
 
 ```sql
 SELECT  
@@ -298,14 +298,14 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-##### **Average Order Value (AOV)**
+#### **Average Order Value (AOV)**
 
 ```sql
 SELECT 
 	SUM(t.sales_amount) / count(*) AS "average_order_value ($)"
 FROM gold.fact_sales t;
 ```
-##### Monthly Revenue Trend
+#### Monthly Revenue Trend
 
 ```sql
 SELECT
@@ -317,7 +317,7 @@ GROUP BY 1,2
 ORDER BY 1,2;
 ```
 
-##### **YoY Sales Growth %**
+#### **YoY Sales Growth %**
 
 ```sql
 WITH cte AS (
@@ -345,8 +345,8 @@ END AS "YoY Growth (%)"
 FROM cte;
 ```
 
-#### Customer KPIs
-##### **Active Customers**
+### Customer KPIs
+#### **Active Customers**
 
 ```sql
 SELECT 
@@ -361,7 +361,7 @@ HAVING count(t.order_number) >= 1
 ORDER BY 3 DESC;
 ```
 
-##### **Revenue Per Customer**
+#### **Revenue Per Customer**
 
 ```sql
 
@@ -376,7 +376,7 @@ GROUP BY 1, 2
 ORDER BY 3 DESC;  
 ```
 
-##### **Top 10 Customers by Revenue**
+#### **Top 10 Customers by Revenue**
 
 ```sql
 WITH customer_rank AS (
@@ -398,8 +398,8 @@ FROM customer_rank
 WHERE ranking <= 10;
 ```
 
-#### Product KPIs
-##### **Top Selling Products**
+### Product KPIs
+#### **Top Selling Products**
 
 ```sql
 SELECT 
@@ -412,7 +412,7 @@ LEFT JOIN gold.dim_products dp
 GROUP BY 1,2
 ORDER BY 3 DESC;
 ```
-##### **Revenue By Category**
+#### **Revenue By Category**
 
 ```sql
 SELECT 
@@ -424,7 +424,7 @@ LEFT JOIN gold.dim_products dp
 GROUP BY 1;
 ```
 
-##### **Top 10 Product by Revenue**
+#### **Top 10 Product by Revenue**
 
 ```sql
 WITH product_rank AS (
@@ -449,18 +449,18 @@ These examples demonstrate how the warehouse simplifies analytical workloads for
 
 ---
 
-### Expected Business Outcomes
+## Expected Business Outcomes
 
 After implementing this data warehouse, the organization should achieve:
 
-#### Operational Benefits
+### Operational Benefits
 
 * Reduced manual spreadsheet reconciliation
 * Faster report generation
 * Improved data consistency across departments
 * Better traceability of data transformations
 
-#### Strategic Benefits
+### Strategic Benefits
 
 * Centralized **single source of truth**
 * More accurate revenue and customer reporting
@@ -469,7 +469,7 @@ After implementing this data warehouse, the organization should achieve:
 
 ---
 
-### Future Enhancements
+## Future Enhancements
 
 This project currently focuses on the **latest available dataset**, but several enhancements could be implemented in future iterations:
 
@@ -484,7 +484,7 @@ This project currently focuses on the **latest available dataset**, but several 
 
 ---
 
-### Target Stakeholders
+## Target Stakeholders
 
 This project is relevant for multiple stakeholder groups:
 
@@ -500,7 +500,7 @@ By serving both **technical users** and **business users**, the warehouse become
 
 ---
 
-### Why PostgreSQL?
+## Why PostgreSQL?
 
 PostgreSQL was selected for this project because it provides:
 
