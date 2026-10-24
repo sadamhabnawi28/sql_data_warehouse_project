@@ -167,7 +167,7 @@ The **Gold Layer** follows a **Star Schema** because it provides:
 
 See full scripts:     
 [Data Definition Languange](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/ddl_gold.sql)    
-[Quality Check](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
+[Data Quality Check](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
 
 
 ### Fact Table
