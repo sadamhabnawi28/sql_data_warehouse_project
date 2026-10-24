@@ -27,7 +27,7 @@ This project demonstrates the complete workflow of building a modern analytical 
 
 ---
 
-# Business Context
+## Business Context
 
 Modern organizations often operate multiple transactional systems such as **ERP (Enterprise Resource Planning)** and **CRM (Customer Relationship Management)**. Although these systems are essential for daily operations, they are usually optimized for **transaction processing (OLTP)** rather than **cross-functional analytics**.
 
@@ -49,9 +49,9 @@ The warehouse enables stakeholders to answer critical business questions such as
 
 ---
 
-## Business Problem Statement
+### Business Problem Statement
 
-### Current Situation
+#### Current Situation
 
 The company receives operational data from:
 
@@ -68,7 +68,7 @@ Because both systems store related business entities independently, management e
 * Different reporting logic between departments
 * Slow report generation due to manual spreadsheet processing
 
-### Business Impact
+#### Business Impact
 
 These issues can lead to:
 
@@ -78,7 +78,7 @@ These issues can lead to:
 * Inefficient sales performance monitoring
 * Higher operational costs for reporting activities
 
-### Proposed Solution
+#### Proposed Solution
 
 Implement a **three-layer Medallion Data Warehouse** that:
 
@@ -88,18 +88,18 @@ Implement a **three-layer Medallion Data Warehouse** that:
 
 ---
 
-## Business Scenario
+### Business Scenario
 A retail distribution company sells products through multiple sales channels. Customer information is managed by the CRM system, while completed orders and financial transactions are recorded in the ERP system. Executives need a consolidated sales performance dashboard that combines both operational domains.
 
 The data warehouse acts as the **analytical backbone** connecting these systems and supporting enterprise reporting.
 
 ---
 
-## Key Business Metrics (KPIs)
+### Key Business Metrics (KPIs)
 
 The Gold Layer is designed to support common business KPIs, including:
 
-### Sales KPIs
+#### Sales KPIs
 
 | KPI                           | Description                                    |
 | ----------------------------- | ---------------------------------------------- |
@@ -109,7 +109,7 @@ The Gold Layer is designed to support common business KPIs, including:
 | **Sales Growth %**            | Month-over-month revenue growth                |
 | **Units Sold**                | Total quantity of products sold                |
 
-### Customer KPIs
+#### Customer KPIs
 
 | KPI                      | Description                                 |
 | ------------------------ | ------------------------------------------- |
@@ -117,7 +117,7 @@ The Gold Layer is designed to support common business KPIs, including:
 | **Revenue per Customer** | Average revenue generated per customer      |
 | **Top Customers**        | Customers contributing the highest revenue  |
 
-### Product KPIs
+#### Product KPIs
 
 | KPI                             | Description                              |
 | ------------------------------- | ---------------------------------------- |
@@ -127,18 +127,18 @@ The Gold Layer is designed to support common business KPIs, including:
 
 ---
 
-# Data Architecture
+## Data Architecture
 
 The solution is built using the **Medallion Architecture**, which organizes data into three distinct layers to improve data quality, maintainability, and analytical performance.
 
-## Bronze Layer – Raw Data
+### Bronze Layer – Raw Data
 
 The Bronze layer serves as the landing zone for all source data. Raw datasets from multiple operational systems are ingested directly from CSV files into PostgreSQL without applying business transformations. This layer preserves the original data for traceability and future reprocessing if needed.    
 See full scripts:     
 [*Data Definition Languange*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/73b6d391cf32a17fa36959c5f331cfbac5f56237/scripts/bronze/ddl_bronze.sql)    
 [*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/bronze/proc_load_bronze.sql)
 
-## Silver Layer – Cleaned & Standardized Data
+### Silver Layer – Cleaned & Standardized Data
 
 The Silver layer focuses on improving data quality through cleansing and transformation processes including:
 
@@ -154,7 +154,7 @@ See full scripts:
 [*Loading Procedure*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/silver/proc_load_silver.sql)
 
 
-## Gold Layer – Business-Ready Data
+### Gold Layer – Business-Ready Data
 
 The Gold layer contains curated datasets specifically designed for reporting and business intelligence. Data is modeled using a **Star Schema**, consisting of fact and dimension tables that enable efficient analytical queries and simplify reporting for end users.
 
@@ -170,9 +170,9 @@ See full scripts:
 [*Data Quality Check*](https://github.com/sadamhabnawi28/sql_data_warehouse_project/blob/169917bdb15e51696b2f0778ed96ee7295eb93a3/scripts/gold/gold_quality_check.sql)
 
 
-### Fact Table
+#### Fact Table
 
-#### `fact_sales`
+##### `fact_sales`
 
 | Column       | Description                     |
 | ------------ | ------------------------------- |
@@ -186,14 +186,14 @@ See full scripts:
 | price   | Selling price per unit          |
 | sales_amount | Calculated revenue              |
 
-### Dimension Tables
+#### Dimension Tables
 
 | Dimension         | Business Purpose                    |
 | ----------------- | ----------------------------------- |
 | `dim_customer`    | Customer segmentation and profiling |
 | `dim_product`     | Product catalog and categorization  |
 
-#### `dim_customers`
+##### `dim_customers`
 
 | Column       | Description                     |
 | ------------ | ------------------------------- |
@@ -208,7 +208,7 @@ See full scripts:
 | birthdate | customer's birth date |
 | create_date| Reference to date the data created or inputed |
 
-#### `dim_products`
+##### `dim_products`
 
 | Column       | Description                     |
 | ------------ | ------------------------------- |
@@ -225,7 +225,7 @@ See full scripts:
 
 ---
 
-## End-to-End Data Flow
+### End-to-End Data Flow
 
 ```text
 ERP CSV Files
@@ -253,7 +253,7 @@ This flow ensures that **raw operational data is transformed into trusted busine
 
 ---
 
-## Data Quality Strategy
+### Data Quality Strategy
 
 Data quality is a critical component of any analytical platform. The Silver Layer implements validation rules such as:
 
@@ -269,12 +269,12 @@ These controls improve the reliability of downstream reports and dashboards.
 
 ---
 
-## KPI Analytical Queries
+### KPI Analytical Queries
 
 The warehouse supports practical business analysis.
 
-### Sales KPIs
-#### **Total Revenue**
+#### Sales KPIs
+##### **Total Revenue**
 
 ```sql
 SELECT
@@ -282,7 +282,7 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-#### **Order Count**
+##### **Order Count**
 
 ```sql
 SELECT
@@ -290,7 +290,7 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-#### **Units Sold**
+##### **Units Sold**
 
 ```sql
 SELECT  
@@ -298,14 +298,14 @@ SELECT
 FROM gold.fact_sales t;
 ```
 
-#### **Average Order Value (AOV)**
+##### **Average Order Value (AOV)**
 
 ```sql
 SELECT 
 	SUM(t.sales_amount) / count(*) AS "average_order_value ($)"
 FROM gold.fact_sales t;
 ```
-#### Monthly Revenue Trend
+##### Monthly Revenue Trend
 
 ```sql
 SELECT
@@ -317,7 +317,7 @@ GROUP BY 1,2
 ORDER BY 1,2;
 ```
 
-#### **YoY Sales Growth %**
+##### **YoY Sales Growth %**
 
 ```sql
 WITH cte AS (
@@ -345,8 +345,8 @@ END AS "YoY Growth (%)"
 FROM cte;
 ```
 
-### Customer KPIs
-#### **Active Customers**
+#### Customer KPIs
+##### **Active Customers**
 
 ```sql
 SELECT 
@@ -361,7 +361,7 @@ HAVING count(t.order_number) >= 1
 ORDER BY 3 DESC;
 ```
 
-#### **Revenue Per Customer**
+##### **Revenue Per Customer**
 
 ```sql
 
@@ -376,7 +376,7 @@ GROUP BY 1, 2
 ORDER BY 3 DESC;  
 ```
 
-#### **Top 10 Customers by Revenue**
+##### **Top 10 Customers by Revenue**
 
 ```sql
 WITH customer_rank AS (
@@ -398,8 +398,8 @@ FROM customer_rank
 WHERE ranking <= 10;
 ```
 
-### Product KPIs
-#### **Top Selling Products**
+#### Product KPIs
+##### **Top Selling Products**
 
 ```sql
 SELECT 
@@ -412,7 +412,7 @@ LEFT JOIN gold.dim_products dp
 GROUP BY 1,2
 ORDER BY 3 DESC;
 ```
-#### **Revenue By Category**
+##### **Revenue By Category**
 
 ```sql
 SELECT 
@@ -424,7 +424,7 @@ LEFT JOIN gold.dim_products dp
 GROUP BY 1;
 ```
 
-#### **Top 10 Product by Revenue**
+##### **Top 10 Product by Revenue**
 
 ```sql
 WITH product_rank AS (
@@ -449,18 +449,18 @@ These examples demonstrate how the warehouse simplifies analytical workloads for
 
 ---
 
-## Expected Business Outcomes
+### Expected Business Outcomes
 
 After implementing this data warehouse, the organization should achieve:
 
-### Operational Benefits
+#### Operational Benefits
 
 * Reduced manual spreadsheet reconciliation
 * Faster report generation
 * Improved data consistency across departments
 * Better traceability of data transformations
 
-### Strategic Benefits
+#### Strategic Benefits
 
 * Centralized **single source of truth**
 * More accurate revenue and customer reporting
@@ -469,7 +469,7 @@ After implementing this data warehouse, the organization should achieve:
 
 ---
 
-## Future Enhancements
+### Future Enhancements
 
 This project currently focuses on the **latest available dataset**, but several enhancements could be implemented in future iterations:
 
@@ -484,7 +484,7 @@ This project currently focuses on the **latest available dataset**, but several 
 
 ---
 
-## Target Stakeholders
+### Target Stakeholders
 
 This project is relevant for multiple stakeholder groups:
 
@@ -500,7 +500,7 @@ By serving both **technical users** and **business users**, the warehouse become
 
 ---
 
-## Why PostgreSQL?
+### Why PostgreSQL?
 
 PostgreSQL was selected for this project because it provides:
 
@@ -548,7 +548,7 @@ This project is licensed under the [MIT License]({{ '/license/' | relative_url }
 
 ---
 
-# About Me
+## About Me
 
 Hi! I'm **Sadam Habnawi**, a Physics freshgraduate with a strong passion for working with data. My interests span across **Data Analytics**, **Data Engineering**, **Data Science**, and Business Intelligence, where I enjoy transforming raw data into valuable insights that drive informed decision-making.
 
